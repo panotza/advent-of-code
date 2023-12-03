@@ -1,14 +1,7 @@
 with open("01.txt", "r") as f:
     sum = 0
     for line in f.readlines():
-        n = ""
-        for c in line:
-            if c.isdigit():
-                n = n + c
-                break
-        for c in line[::-1]: 
-            if c.isdigit():
-                n = n + c
-                break
-        sum += int(n)
+        digits = [int(c) for c in line if c.isdigit()]
+        print(digits)
+        sum += (digits[0] * 10) + digits[-1]
     print(sum)
